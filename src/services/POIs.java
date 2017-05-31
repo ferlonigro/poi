@@ -1,5 +1,7 @@
 package services;
 
+import java.io.IOException;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -18,7 +20,12 @@ public class POIs {
 
 		POIRepository repo = new POIRepository();
 		
-		POI[] pois = repo.getPois(servicio);
+		POI[] pois = null;
+		try {
+			pois = repo.getPois(servicio);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		return pois;
 	}
