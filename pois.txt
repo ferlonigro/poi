@@ -1,0 +1,1 @@
+[{"id":1,"latitud":-32.0,"longitud":-64.0,"nombre":"nombre 1","descripcion":"descripcion 1","servicio":"servicio"},{"id":2,"latitud":-32.0,"longitud":-64.0,"nombre":"nombre 2","descripcion":"descripcion 2","servicio":"servicio"}]
