@@ -31,7 +31,12 @@ public class POIRepository {
 			}
 		}
 		
-		return result.toArray(new POI[result.size()]);
+		if (result.isEmpty()) {
+			return null;
+		} else {
+			return result.toArray(new POI[result.size()]);
+		}
+		
 	}
 	
 	private static void load() throws IOException {

@@ -16,7 +16,7 @@ public class POIs {
 	@GET
 	@Path("/pois/{servicio}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public POI[] getTrackInJSON(@PathParam("servicio") String servicio) {
+	public POIsList getTrackInJSON(@PathParam("servicio") String servicio) {
 
 		POIRepository repo = new POIRepository();
 		
@@ -24,8 +24,15 @@ public class POIs {
 
 		pois = repo.getPois(servicio);
 
+		POIsList list;
+		if (pois==null) {
+			list = new POIsList(1, "El servicio no existe", null);
+		} else {
+			list = new POIsList(0, null, pois);
+		}
+		
 
-		return pois;
+		return list;
 	}
 	
 	
