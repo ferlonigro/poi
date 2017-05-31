@@ -2,7 +2,6 @@ package repositories;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,15 +13,18 @@ import domain.POI;
 
 public class POIRepository {
 	private static String POIsPath = "C:\\devel\\pois.txt";
-	private Gson gson = new GsonBuilder().create();
+	private static Gson gson = new GsonBuilder().create();
+	private static POI[] pois;
+	static {
+		try {
+			load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	Set<POI> result = new HashSet<>();
-	public POI[] getPois(String servicio) throws IOException {
-		byte[] jsonBytes = Files.readAllBytes(Paths.get(POIsPath));
-		String json = new String(jsonBytes);
-		
-		POI[] pois = gson.fromJson(json, POI[].class);
-		
+	public POI[] getPois(String servicio) {
 		for (POI poi : pois) {
 			if (poi.getServicio().equalsIgnoreCase(servicio)) {
 				result.add(poi);
@@ -30,5 +32,12 @@ public class POIRepository {
 		}
 		
 		return result.toArray(new POI[result.size()]);
+	}
+	
+	private static void load() throws IOException {
+		byte[] jsonBytes = Files.readAllBytes(Paths.get(POIsPath));
+		String json = new String(jsonBytes);
+		
+		pois = gson.fromJson(json, POI[].class);
 	}
 }
