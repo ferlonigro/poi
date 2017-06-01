@@ -8,7 +8,7 @@ public class CerraduraTest {
 	
 
 	@Test
-	public void alCrearLaCerraduraDebeEstarCerrada() {
+	public void testalCrearLaCerraduraDebeEstarCerrada() {
 		assertThat(cerradura.isCerrada()).isEqualTo(true);
 	}
 
