@@ -12,7 +12,7 @@ import com.google.gson.GsonBuilder;
 import domain.POI;
 
 public class POIRepository {
-	private static String POIsPath = "C:\\devel\\pois.txt";
+	private static String POIsPath = "pois.txt";
 	private static Gson gson = new GsonBuilder().create();
 	private static POI[] pois;
 	static {
