@@ -8,14 +8,12 @@ public class TamborDePrueba implements Tambor {
 	}
 
 
-	@Override
 	public int girar() {
 		
 		return valorPrueba;
 	}
 
 
-	@Override
 	public int valor() {
 		return valorPrueba;
 	}

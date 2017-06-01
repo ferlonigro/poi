@@ -23,7 +23,7 @@ public class POIRepository {
 		}
 	}
 	
-	Set<POI> result = new HashSet<>();
+	Set<POI> result = new HashSet<POI>();
 	public POI[] getPois(String servicio) {
 		for (POI poi : pois) {
 			if (poi.getServicio().equalsIgnoreCase(servicio)) {
