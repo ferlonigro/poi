@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-public class POITest {
+public class POIsAceptacionIT {
 	
 	private static String BASE_URL = "http://localhost";
 	private static String BASE_PORT = "9090";
