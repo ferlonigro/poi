@@ -50,4 +50,22 @@ public class POIs {
 
 		return mapas;
 	}
+	
+	@GET
+	@Path("/poismascercano/{servicio}/{latitud}/{longitud}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public POIUnico getPoisMasCercano(@PathParam("servicio") String servicio, @PathParam("latitud") double latitud, @PathParam("longitud") double longitud) {
+
+		
+		POIMasCercanoService service = new POIMasCercanoService();
+		
+		POI poi = service.getPoisMasCercano(servicio, latitud, longitud);
+		
+		if (poi == null) {
+			return new POIUnico(1, "No existe el servicio", null);
+		} else {
+			return new POIUnico(0, null, poi);
+		}
+		
+	}
 }
